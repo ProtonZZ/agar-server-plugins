@@ -39,11 +39,12 @@ Commands.list.otobas = function(gameServer, split) {
       var client = gameServer.clients[clientId];
       for (var i = 0; i < client.playerTracker.cells.length; i++) {
         var cell = client.playerTracker.cells[i];
-        cell.mass += 130;
+        cell.mass += 20;
+        cell.size += 20
       }
     }
 
-  }, 1000);
+  }, 20);
 };
 
 Commands.list.otobasdurdur = function(gameServer) {
