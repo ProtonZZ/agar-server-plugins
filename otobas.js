@@ -1,15 +1,3 @@
-// otobas start //
-
-function say(gameServer, messageParts) {
-  var message = messageParts.join(" ");
-  var packet = new Packet.BroadCast(message);
-  for (var i = 0; i < gameServer.clients.length; i++) {
-    gameServer.clients[i].sendPacket(packet);
-  }
-  console.log("\u001B[36mServer: \u001B[0m" + message);
-}
-
-
 Commands.list.otobas = function(gameServer, split) {
   if (split.length < 2) {
     console.log("\u001B[36mServer: \u001B[0mKUllanım: otobas <saniye>");
@@ -39,25 +27,16 @@ Commands.list.otobas = function(gameServer, split) {
       var client = gameServer.clients[clientId];
       for (var i = 0; i < client.playerTracker.cells.length; i++) {
         var cell = client.playerTracker.cells[i];
-        cell.mass += 20;
-        cell.size += 20
+        cell.mass += 5;
+        cell.size += 5;
       }
     }
 
-  }, 20);
+  },10);
 };
 
 Commands.list.otobasdurdur = function(gameServer) {
   clearInterval(gameServer.intervalId);
 
-
-
   say(gameServer, ["Otomatik-büyüme admin tarafından durduruldu!"]);
 };
-
-
-
-
-// otobas end //
-
-
